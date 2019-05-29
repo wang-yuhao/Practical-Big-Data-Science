@@ -1,0 +1,14 @@
+artifact_uri: /home/yuhao/workspace/Practical-Big-Data-Science/mlruns/0/6c2c4e93673e4a2387e6459eb0f0ad08/artifacts
+end_time: null
+entry_point_name: null
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_uuid: 6c2c4e93673e4a2387e6459eb0f0ad08
+source_name: /home/yuhao/anaconda3/lib/python3.7/site-packages/ipykernel_launcher.py
+source_type: 4
+source_version: null
+start_time: 1557770841632
+status: 1
+tags: []
+user_id: yuhao

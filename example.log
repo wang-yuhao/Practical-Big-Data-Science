@@ -1,0 +1,16 @@
+2019-05-24 18:07:31,103 - __main__ - INFO - This is a log info
+2019-05-24 18:07:31,103 - __main__ - DEBUG - Debugging
+2019-05-24 18:07:31,103 - __main__ - WARNING - Warning exists
+2019-05-24 18:07:31,103 - __main__ - INFO - Finish`
+2019-05-24 18:09:28,050 - __main__ - INFO - This is a log info
+2019-05-24 18:09:28,050 - __main__ - DEBUG - Debugging
+2019-05-24 18:09:28,050 - __main__ - WARNING - Warning exists
+2019-05-24 18:09:28,050 - __main__ - INFO - Finish`
+2019-05-24 18:10:03,006 - __main__ - INFO - This is a log info
+2019-05-24 18:10:03,006 - __main__ - DEBUG - Debugging
+2019-05-24 18:10:03,007 - __main__ - WARNING - Warning exists
+2019-05-24 18:10:03,007 - __main__ - INFO - Finish`
+2019-05-24 18:10:10,329 - root - ERROR - Invalid alias: The name clear can't be aliased because it is another magic command.
+2019-05-24 18:10:10,329 - root - ERROR - Invalid alias: The name more can't be aliased because it is another magic command.
+2019-05-24 18:10:10,329 - root - ERROR - Invalid alias: The name less can't be aliased because it is another magic command.
+2019-05-24 18:10:10,329 - root - ERROR - Invalid alias: The name man can't be aliased because it is another magic command.
