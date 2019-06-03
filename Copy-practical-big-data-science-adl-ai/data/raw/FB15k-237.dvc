@@ -1,0 +1,8 @@
+md5: 770d90622f00f6c90e1d26a5078915cb
+wdir: ../..
+outs:
+- md5: aba53d1ec1762b2f6a38742c389d25d1.dir
+  path: data/raw/FB15k-237
+  cache: true
+  metric: false
+  persist: false

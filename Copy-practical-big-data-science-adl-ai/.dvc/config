@@ -1,0 +1,5 @@
+['remote "myssh"']
+url = ssh://10.195.1.54://home/ubuntu/datasets
+user = ubuntu
+[core]
+remote = myssh
