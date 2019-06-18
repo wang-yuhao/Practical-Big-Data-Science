@@ -1,0 +1,76 @@
+# 1.pre-process dataset
+# 2.build model
+## 2.1 Generate negative sampling
+### 2.1.1 According [batch_size] split the entities to [pos_batch]:
+e.g.
+#### + [pos_triples]
+| subject | relation | object |
+|-|-|-|
+| s1 | r1 | o1 |
+| s2 | r2 | o3 |
+...
+| s(10*batch_size) | r(10*batch_size) | o(10*batch_size) |
+
+#### + [pos_batches]:Split [pos_triples] into [pos_batches]
+| subject | relation | object |
+|-|-|-|
+| s1 | r1 | o1 |
+| s2 | r2 | o3 |
+...
+| s(batch_size) | r(batch_size) | o(batch_size) |
+
+| s(batch_size+1) | r(batch_size+1) | o(batch_size+1) |
+|-|-|-|
+| s1 | r1 | o1 |
+| s2 | r2 | o3 |
+...
+| s(2*batch_size) | r(2*batch_size) | o(2*batch_size) |
+
+| s(2*batch_size+1) | r(2*batch_size+1) | o(2*batch_size+1) |
+|-|-|-|
+| s1 | r1 | o1 |
+| s2 | r2 | o3 |
+...
+| s(10*batch_size) | r(10*batch_size) | o(10*batch_size) |
+
+#### + [pos_batch]:through for loop assign each batch to [pos_batch]
+| subject | relation | object |
+|-|-|-|
+| s1 | r1 | o1 |
+| s2 | r2 | o3 |
+...
+| s(batch_size) | r(batch_size) | o(batch_size) |
+
+### 2.1.1 Add corrupted negative samples:
+#### + [subject_based_corrupted_triples]:
+| subject | relation | object |
+|-|-|-|
+| s1' | r1 | o1 |
+| s2' | r2 | o3 |
+...
+| s(batch_size/2)' | r(batch_size/2) | o(batch_size/2) |
+
+#### + [object_based_corrupted_triples]:
+| subject | relation | object |
+|-|-|-|
+| s(batch_size/2 + 1) | r(batch_size/2 + 1) | o(batch_size/2 + 1)' |
+| s(batch_size/2 + 2) | r(batch_size/2 + 2) | o(batch_size/2 + 2)' |
+...
+| s(batch_size) | r(batch_size) | o(batch_size)' |
+
+#### + [neg_batch]: [subject_based_corrupted_triples] + [object_based_corrupted_triples] 
+| subject | relation | object |
+|-|-|-|
+| s1' | r1 | o1 |
+| s2' | r2 | o3 |
+...
+| s(batch_size/2)' | r(batch_size/2) | o(batch_size/2) 
+| s(batch_size/2 + 1) | r(batch_size/2 + 1) | o(batch_size/2 + 1)' |
+| s(batch_size/2 + 2) | r(batch_size/2 + 2) | o(batch_size/2 + 2)' |
+...
+| s(batch_size) | r(batch_size) | o(batch_size)' |
+
+## 2.2 Compute the Loss
+### Split pos_batch and neg_batch to s,r,o
+### compute pos_batch_score and neg_batch_score
+### through nn.MarginRankingLoss compute the loss
